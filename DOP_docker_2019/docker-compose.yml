@@ -1,0 +1,76 @@
+version: "3"
+
+services:
+  poll:
+    build: ./poll
+    command: python app.py
+    ports:
+      - "5000:80"
+    environment:
+        - redis=redis
+        - db=db
+    networks:
+      - poll-tier
+    restart: on-failure
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379"
+    networks:
+      - poll-tier
+      - back-tier
+    environment:
+        - redis=redis
+        - db=db
+    restart: on-failure
+
+  worker:
+    build:
+      context: ./worker
+    depends_on:
+      - "redis"
+      - "db"
+    networks:
+      - back-tier
+    environment:
+        - redis=redis
+        - db=db
+    restart: on-failure
+
+  db:
+    image: postgres:9.4
+    container_name: db
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+    networks:
+      - result-tier
+      - back-tier
+    environment:
+        - redis=redis
+        - db=db
+    restart: on-failure
+
+
+  result:
+    build: ./result
+    ports:
+      - "5001:80"
+    environment:
+        - redis=redis
+        - db=db
+    networks:
+      - result-tier
+    restart: on-failure
+
+volumes:
+  db-data:
+
+networks:
+  poll-tier:
+      driver: bridge
+  result-tier:
+      driver: bridge
+  back-tier:
+      driver: bridge
