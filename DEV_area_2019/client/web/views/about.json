@@ -1,0 +1,124 @@
+{
+    " client ": {
+        " host ": "10.101.53.35"
+    },
+    " server ": {
+        " current_time ": 1531680780 ,
+        " services ": [{
+            " name ": " Weather service" ,
+            " widgets1 ": [{
+                " name ": " Weather management " ,
+                " description ": " Send mail with weather fluctuation " ,
+                " params ": [{
+                    " name_param ": " city " ,
+                    " type_param ": " string "
+                }, {
+                    " name_param ": " email " ,
+                    " type_param ": " string "
+                } , {
+                    " name_param ": " temp_max " ,
+                    " type_param ": " integer "
+                } , {
+                    " name_param ": " temp_min " ,
+                    " type_param ": " integer "
+            }]
+        }]
+            
+        } , {
+            " name ": " Gmail service " ,
+            " widgets ": [{
+                " name ": " email " ,
+                " description ": " Can send email" ,
+                " params ": [{
+                    " name_param ": " email " ,
+                    " type_param ": " string "
+                }]
+            }]
+        } , {
+            " name ": " Trello service" ,
+            " widgets ": [{
+                " name ": " trello dashboard " ,
+                " description ": " Can give boards by passing the id" ,
+                " params ": [{
+                    " name_param ": " id ",
+                    " type_param ": " string "
+                }]
+            }]
+        } , {
+            " name ": " Intra Epitech service " ,
+            " widgets ": [{
+                " name ": " Intra Epitech " ,
+                " description ": " Give the infos by email when we receive an alert or a message from the epitech intra   " ,
+                " params ": [{
+                    " name_param ": " auto_login ",
+                    " type_param ": " string "
+                } , {
+                    " name_param ": " email ",
+                    " type_param ": " string "
+                }]
+            }]
+        } , {
+            " name ": " Joke service " ,
+            " widgets ": [{
+                " name ": " Joke " ,
+                " description ": " Send an email with a joke inside at a given hour each day " ,
+                " params ": [{
+                    " name_param ": " email ",
+                    " type_param ": " string "
+                }]
+            }]
+        } , {
+            " name ": " Hours service " ,
+            " widgets ": [{
+                " name ": " Hours " ,
+                " description ": " The user can put an hour, each day at this hour he will receive an alert by email " ,
+                " params ": [{
+                    " name_param ": " email ",
+                    " type_param ": " string " 
+                } , {
+                    " name_param ": " hour ",
+                    " type_param ": " integer "
+                }]
+            }]
+        } , {
+            " name ": " Foot service " ,
+            " widgets ": [{
+                " name ": " Foot " ,
+                " description ": " Can follow a team, you will receive a email when your team is playing and against who " ,
+                " params ": [{
+                    " name_param ": " team_name ",
+                    " type_param ": " string " 
+                } , {
+                    " name_param ": " email ",
+                    " type_param ": " string "
+                }]
+            }]
+        } , {
+            " name ": " Movie service" ,
+            " widgets ": [{
+                " name ": " Movie " ,
+                " description ": " Send an email when a new movie is up on site, send an email what will be the next movie up on the site, send an email when a movie is up in the cinema " ,
+                " params ": [{
+                    " name_param ": " email ",
+                    " type_param ": " string "
+                }]
+            }]
+        } , {
+            " name ": " News service " ,
+            " widgets ": [{
+                " name ": " News " ,
+                " description ": " When there is a news info in your country you will receive a email or you can receive all the infos of your country in a given hour " ,
+                " params ": [{
+                    " name_param ": " email " ,
+                    " type_param ": " string "
+                } , {
+                    " name_param ": " country " ,
+                    " type_param ": " string "
+                } , {
+                    " name_param ": " hour " ,
+                    " type_param ": " integer "
+                }]
+            }]
+        }]
+    }
+}

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="Style/Home.css">
+    <link rel="stylesheet" href="Style/Intra.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+    <link href='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.css' rel='stylesheet' />
+
+    <script src="/weather.js"></script>
+
+
+    <style>
+        #bg-secondary {
+            background-color: #FF8C00;
+        }
+    </style>
+
+
+    <title>AREA Home</title>
+</head>
+
+<body class="bg-white">
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <P class="navbar-brand my-0">Dashboard</p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
+            <a class="btn btn-light" href="/">Logout</a>
+        </div>
+    </nav>
+
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Welcome Home AREA</h1>
+
+        <div class="row text-center">
+            <a href="./client.apk" target="_blank" class="btn btn-primary">Download APK</a>
+        </div>
+
+        <div class="row mt-3">
+            <div class="panel-group col-12" id="accordion">
+                <div class="panel panel-default text-white rounded p-4 my-4" id="weather"
+                    style="background-color:#FFCA28;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">
+                            <img src="Style/imgs/OpenWeather.png" width="50" height="50">
+                            <a data-toggle="collapse" class="text-white" data-parent="#accordion" href="#collapse1">
+                                OpenWeather</a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="text-center panel-collapse collapse">
+                        <div>
+                            <div>
+                                <div style="width: 35%; margin-top: 1%; text-align: center; margin-left: 35%;">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="text" class="form-control" placeholder="Ville" id="subVille"
+                                        name="subVille" required>
+                                </div>
+                                <div style="text-align: right;">
+                                    <label class="switch">
+                                        <input type="checkbox" id="myCheckbox" onchange="toggleCheck()" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div style="width: 35%; margin-top: 1%; margin-left: 35%;">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="text" class="form-control" placeholder="Température Max"
+                                        id="subTempMax" name="subTempMax">
+                                </div>
+                                <div style="width: 35%; margin-top: 1%; margin-left: 35%;">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="text" class="form-control" placeholder="Température Min"
+                                        id="subTempMin" name="subTempMin">
+                                </div>
+
+                                <div style="width: 35%; margin-top: 1%; margin-left: 35%;">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="mail" class="form-control" placeholder="votre Email" id="mail-meteo"
+                                        name="mail-meteo">
+                                </div>
+                                <div style="width: 240px; text-align: center; margin-left: 40%; margin-top: 1%;">
+                                    <!-- <input type="submit" class="btn btn-primary" value="Submit"
+                                            onclick="getResult()" id="btnTempMin" style="text-align: center;"> -->
+                                    <input type="submit" class="btn btn-primary" value="Submit" id="btnTemp"
+                                        style="text-align: center;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group col-12" id="accordion">
+                <div class="panel panel-default text-white rounded p-4 my-4" style="background-color:#eb2f06;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">
+                            <!-- <img src="Style/imgs/Gmail.png" width="50" height="50"> -->
+                            <a data-toggle="collapse" class="text-white" data-parent="#accordion"
+                                href="#collapse2">News</a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="text-center panel-collapse collapse">
+                        <div class="d-inline-block panel-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <select name="" id="select-news-country">
+                                        <option value="us">Amérique</option>
+                                        <option value="fr">France</option>
+                                        <option value="jp">Japon</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+
+                                    <input type="mail" class="form-control" placeholder="votre Email" id="mail-news"
+                                        name="mail-news">
+                                </div>
+                                <div class="col-12">
+
+                                    <select name="" id="select-news-hours">
+                                        <option value="00">00h</option>
+                                        <option value="01">01h</option>
+                                        <option value="02">02h</option>
+                                        <option value="03">03h</option>
+                                        <option value="04">04h</option>
+                                        <option value="05">05h</option>
+                                        <option value="06">06h</option>
+                                        <option value="07">07h</option>
+                                        <option value="08">08h</option>
+                                        <option value="09">09h</option>
+                                        <option value="10">10h</option>
+                                        <option value="11">11h</option>
+                                        <option value="12">12h</option>
+                                        <option value="13">13h</option>
+                                        <option value="14">14h</option>
+                                        <option value="15">15h</option>
+                                        <option value="16">16h</option>
+                                        <option value="17">17h</option>
+                                        <option value="18">18h</option>
+                                        <option value="19">19h</option>
+                                        <option value="20">20h</option>
+                                        <option value="21">21h</option>
+                                        <option value="22">22h</option>
+                                        <option value="23">23h</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-primary" id="news-receive-hour">Receive by hour</button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-primary" id="news-receive">Receive by new news</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group col-12" id="accordion">
+                <div class="panel panel-default text-white rounded p-4 my-4" style="background-color:#4a69bd;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">
+                            <img src="Style/imgs/IntraEpitech.png" width="50" height="50">
+                            <a data-toggle="collapse" class="text-white" data-parent="#accordion" href="#collapse5">
+                                Intra Epitech</a>
+                        </h4>
+                    </div>
+                    <div id="collapse5" class="text-center panel-collapse collapse">
+                        <div class="d-inline-block  panel-body">
+                            <div class=" row">
+
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="text" class="form-control" id="autologin" name=""
+                                        placeholder="autologin">
+                                </div>
+                                <div class="form-group col-12">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input type="mail" class="form-control" name="" id="mail-intra" placeholder="mail">
+                                </div>
+                                <div class="form-group col-6">
+                                    <button type="" class="btn btn-primary" id="intra-msg">Message</button>
+                                </div>
+                                <div class="form-group col-6">
+                                    <button type="" class="btn btn-primary" id="intra-alert">Alerte</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group col-12" id="accordion">
+                <div class="panel panel-default text-white rounded p-4 my-4" style="background-color:#0a3d62;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">
+                            <a data-toggle="collapse" class="text-white" data-parent="#accordion" href="#collapse91">
+                                Hour</a>
+                        </h4>
+                    </div>
+                    <div id="collapse91" class="text-center panel-collapse collapse">
+                        <div class="d-inline-block panel-body">
+                            <div class=" row">
+
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="mail" class="form-control" id="mail-hour" name="" placeholder="Mail">
+                                </div>
+                                <div class="form-group">
+                                    <select name="" id="select-hours">
+                                        <option value="00">00h</option>
+                                        <option value="01">01h</option>
+                                        <option value="02">02h</option>
+                                        <option value="03">03h</option>
+                                        <option value="04">04h</option>
+                                        <option value="05">05h</option>
+                                        <option value="06">06h</option>
+                                        <option value="07">07h</option>
+                                        <option value="08">08h</option>
+                                        <option value="09">09h</option>
+                                        <option value="10">10h</option>
+                                        <option value="11">11h</option>
+                                        <option value="06">06h</option>
+                                        <option value="07">07h</option>
+                                        <option value="08">08h</option>
+                                        <option value="09">09h</option>
+                                        <option value="10">10h</option>
+                                        <option value="11">11h</option>
+                                        <option value="12">12h</option>
+                                        <option value="13">13h</option>
+                                        <option value="14">14h</option>
+                                        <option value="15">15h</option>
+                                        <option value="16">16h</option>
+                                        <option value="17">17h</option>
+                                        <option value="18">18h</option>
+                                        <option value="19">19h</option>
+                                        <option value="20">20h</option>
+                                        <option value="21">21h</option>
+                                        <option value="22">22h</option>
+                                        <option value="23">23h</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" id="btn-hour">button</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-group col-12" id="accordion">
+                <div class="panel panel-default text-white rounded p-4 my-4" style="background-color:#0a3d62;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">
+                            <a data-toggle="collapse" class="text-white" data-parent="#accordion"
+                                href="#collapse90">Foot</a>
+                        </h4>
+                    </div>
+                    <div id="collapse90" class="text-center panel-collapse collapse">
+                        <div class="d-inline-block panel-body">
+                            <div class="row">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="mail" class="form-control" id="mail-foot" name="" placeholder="Mail">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="team-foot" placeholder="team">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" id="btn-foot">button</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-group col-12" id="accordion">
+                <div class="panel panel-default text-white rounded p-4 my-4" style="background-color:#0a3d62;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">
+                            <!-- <img src="Style/imgs/Github.png" width="50" height="50"> -->
+                            <a data-toggle="collapse" class="text-white" data-parent="#accordion" href="#collapse3">
+                                Movie</a>
+                        </h4>
+                    </div>
+                    <div id="collapse3" class="text-center panel-collapse collapse">
+                        <div class="d-inline-block  panel-body">
+                            <div class="row">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="mail" class="form-control" name="" id="mail-movie" placeholder="mail">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary" id="last-movie-cinema">last movie cinema</button>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary" id="last-movie-platform">last movie
+                                        platform</button>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary" id="next-movie">next movie</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group col-12" id="accordion">
+                <div class="panel panel-default text-white rounded p-4 my-4" style="background-color:#0c2461;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">
+                            <img src="Style/imgs/Dropbox.png" width="50" height="50">
+                            <a data-toggle="collapse" class="text-white" data-parent="#accordion" href="#collapse4">
+                                DropBox</a>
+                        </h4>
+                    </div>
+                    <div id="collapse4" class="text-center panel-collapse collapse">
+                        <div class="d-inline-block col-23 panel-body">
+                            <div class="col-23 row">
+                                <form action="/" method="post">
+
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" class="form-control" name="username" placeholder="Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input type="password" class="form-control" name="password"
+                                            placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary" value="Submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group col-12" id="accordion">
+                <div class="panel panel-default text-white rounded p-4 my-4" style="background-color:#82ccdd;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">
+                            <img src="Style/imgs/trello.png" width="50" height="50">
+                            <a data-toggle="collapse" class="text-white" data-parent="#accordion" href="#collapse6">
+                                Trello</a>
+                        </h4>
+                    </div>
+                    <div id="collapse6" class="text-center panel-collapse collapse">
+                        <div class="d-inline-block col-23 panel-body">
+                            <div class="col-23 row">
+                                <form action="/" method="post">
+
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" class="form-control" name="username" placeholder="Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input type="password" class="form-control" name="password"
+                                            placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary" value="Submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group col-12" id="accordion">
+                <div class="panel panel-default text-white rounded p-4 my-4" style="background-color:#3c6382;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">
+                            <img src="Style/imgs/Discord.png" width="50" height="50">
+                            <a data-toggle="collapse" class="text-white" data-parent="#accordion" href="#collapse7">
+                                Discord</a>
+                        </h4>
+                    </div>
+                    <div id="collapse7" class="text-center panel-collapse collapse">
+                        <div class="d-inline-block col-23 panel-body">
+                            <div class="col-23 row">
+
+
+                                <div class="form-group">
+                                    <a
+                                        href='https://discordapp.com/api/oauth2/authorize?client_id=680149220270800904&permissions=0&redirect_uri=http%3A%2F%2Flocalhost%3A8081%2Foauth2&response_type=code&scope=identify%20email%20guilds%20bot%20guilds.join'>Connect</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group col-12" id="accordion">
+                <div class="panel panel-default text-white rounded p-4 my-4" style="background-color:#e58e26;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center">
+                            <img src="Style/imgs/rss.png" width="50" height="50">
+                            <a data-toggle="collapse" class="text-white" data-parent="#accordion" href="#collapse8">
+                                RSS</a>
+                        </h4>
+                        </form>
+                    </div>
+                    <div id="collapse8" class="text-center panel-collapse collapse">
+                        <div class="d-inline-block col-23 panel-body">
+                            <div class="col-23 row">
+                                <form action="/" method="post">
+
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" class="form-control" name="username" placeholder="Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input type="password" class="form-control" name="password"
+                                            placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary" value="Submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 mx-auto" id="mapid" style="height:40em;width: 80%;">
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            function toggleCheck() {
+
+
+
+                if (document.getElementById("myCheckbox").checked === true) {
+                    var variations = new Boolean("true");
+                    console.log("TRUE");
+                } else {
+                    var variations = new Boolean("false");
+                    console.log("FALSE");
+                }
+            }
+
+        </script>
+
+        <script>
+
+            function sendMail() {
+
+                var username = document.getElementById("gmailUsername").value;
+                var password = document.getElementById("gmailPassword").value;
+
+                alert(username);
+                alert(password);
+
+                let transporteur = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: username,
+                        pass: password
+                    }
+                });
+
+                let mailOption = {
+                    from: 'dev.ali.yaich@gmail.com',
+                    to: 'dev.ali.yaich@gmail.com',
+                    subject: 'Mail from THE BOSS',
+                    text: 'Bonjour bg tu vient de recevoir un mail du boss'
+                };
+
+                transporteur.sendMail(mailOption, function (err, data) {
+                    if (err) {
+                        console.log('Mail Error Occurs');
+                    } else {
+                        console.log('mail sent!!');
+                    }
+                });
+            }
+
+        </script>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://apis.google.com/js/api.js?mods=enable_cloud_search_widget&onload=onLoad" async defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+<script src="https://apis.google.com/js/client.js?onload=init"></script>
+
+<script src='https://api.mapbox.com/mapbox.js/v3.2.1/mapbox.js'></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+
+<!-- <script src="js/JSON-js/json2.js"></script> -->
+
+<script>
+    $(document).ready(function () {
+
+        $("#last-movie-cinema").click(function () {
+            const user = {
+                mail: $("#mail-movie").val()
+            }
+
+            if (user.mail == "") {
+                return;
+            }
+
+            axios.post('http://localhost:8080/mouvie/available', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+            axios.get('http://localhost:8080/mouvie/available', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        });
+
+        $("#last-movie-platform").click(function () {
+            const user = {
+                mail: $("#mail-movie").val()
+            }
+
+            // console.log(this.state.mail);
+
+            if (user.mail == "") {
+                return;
+            }
+
+            axios.post('http://localhost:8080/mouvie/last_added', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+            axios.get('http://localhost:8080/mouvie/last_added', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        });
+
+        $("#next-movie").click(function () {
+            const user = {
+                mail: $("#mail-movie").val()
+            }
+
+            if (user.mail == "") {
+                return;
+            }
+
+            axios.post('http://localhost:8080/mouvie/upcoming', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+            axios.get('http://localhost:8080/mouvie/upcoming', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        });
+
+        $("#btn-foot").click(function () {
+            const user = {
+                equipe_a_suivre: $("#team-foot").val(),
+                mail: $("#mail-foot").val()
+            }
+
+            // console.log(this.state.team);
+
+            if (user.team == "" || user.mail == "") {
+                return;
+            }
+
+            axios.post('http://localhost:8080/foot', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+            axios.get('http://localhost:8080/foot', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        });
+
+        $("#btn-hour").click(function () {
+
+            const user = {
+                hours: $("#select-hours").val(),
+                mail: $("#mail-hour").val()
+            }
+
+            console.log(user.hours);
+
+            if (user.hours == "" || user.mail == "") {
+                return;
+            }
+
+            axios.post('http://localhost:8080/hours', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+            axios.get('http://localhost:8080/hours', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        });
+
+        $("#intra-msg").click(function () {
+            const user = {
+                autologin: $("#autologin").val(),
+                mail: $("#mail-intra").val()
+            }
+
+            if (user.autologin == "" || user.mail == "") {
+                return;
+            }
+
+            axios.post('http://localhost:8080/epitech/msg', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+            axios.get('http://localhost:8080/epitech/msg', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        });
+
+        $("#intra-alert").click(function () {
+            const user = {
+                autologin: $("#autologin").val(),
+                mail: $("#mail-intra").val()
+            }
+
+            if (user.autologin == "" || user.mail == "") {
+                return;
+            }
+
+            axios.post('http://localhost:8080/epitech/alert', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+            axios.get('http://localhost:8080/epitech/alert', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+
+        });
+
+
+
+        $("#news-receive").click(function () {
+            const user = {
+                country: $("#select-news-country").val(),
+                mail: $("#mail-news").val()
+            }
+
+
+            console.log(user.country);
+
+            if (user.country == "" || user.mail == "") {
+                return;
+            }
+
+            axios.post('http://localhost:8080/news', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+            axios.get('http://localhost:8080/news', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        });
+
+        $("#news-receive-hour").click(function () {
+            const user = {
+                country: $("#select-news-country").val(),
+                mail: $("#mail-news").val(),
+                hours: $("#select-news-hour").val()
+            }
+
+
+            if (user.country == "" || user.mail == "" || user.hours == "") {
+                return;
+            }
+
+            axios.post('http://localhost:8080/news_hour', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+            axios.get('http://localhost:8080/news_hour', user)
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        });
+
+        $("#btnTemp").click(function () {
+            console.log("ici");
+            var obj = {
+                city: $("#subVille").val(),
+                temp_min: $("#subTempMin").val(),
+                temp_max: $("#subTempMax").val(),
+                mail: $("#mail-meteo").val()
+            }
+            // var json = JSON.stringify(obj);
+
+            // console.log(json);
+            if ($("#myCheckbox").checked === true) {
+                axios.post('http://localhost:8080/weather/temp', obj)
+                    .then(function (res) {
+                        console.log(res.data);
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+                axios.get('http://localhost:8080/weather/temp', obj)
+                    .then(function (res) {
+                        console.log(res.data);
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+            } else {
+                axios.post('http://localhost:8080/weather/temp', obj)
+                    .then(function (res) {
+                        console.log(res.data);
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+                axios.get('http://localhost:8080/weather/temp', obj)
+                    .then(function (res) {
+                        console.log(res.data);
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+                axios.post('http://localhost:8080/weather/fluctuation', obj)
+                    .then(function (res) {
+                        console.log(res.data);
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+                axios.get('http://localhost:8080/weather/fluctuation', obj)
+                    .then(function (res) {
+                        console.log(res.data);
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+            }
+
+            // $.ajax({
+            //     url: "/weather",
+            //     type: "POST",
+            //     dataType: "json",
+            //     data: json,
+            //     contentType: "application/json",
+            //     timeout: 3000,
+            //     success: function(msg) {
+            //         console.log("vale");
+            //     }
+            // });
+        });
+
+    });
+
+    function getResult() {
+
+        alert("RESULT");
+        infos_weather();
+
+    }
+</script>
+
+</html>

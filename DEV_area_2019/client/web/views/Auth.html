@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="Style/Auth.css" media="all">
+
+
+<head>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id"
+        content="156679486932-02msgn3qq0mkp3eb7b3878qogmn9qpm2.apps.googleusercontent.com">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Log in</title>
+</head>
+
+<div class="container">
+    <h1>Welcome to our Area !</h1>
+</div>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mt-5 mx-auto">
+
+                <form action="/" method="post">
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" class="form-control mt-2" name="username" id="username"
+                            placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control mt-2" name="password" id="password"
+                            placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" id="btn-connexion" value="Submit">
+                    </div>
+                </form>
+                <div>
+                    <input class="btn btn-primary" id="btn-account" value="Create account"
+                        onClick="location.href='./account.html'">
+                </div>
+
+                <!-- <form action="/account" method="get">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Create account">
+                    </div>
+                </form>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <a href="/" onclick="signOut();">Sign out</a> -->
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    // function onSignIn(googleUser) {
+    // var profile = googleUser.getBasicProfile();
+    // console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    // console.log('Name: ' + profile.getName());
+    // console.log('Image URL: ' + profile.getImageUrl());
+    // console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    // var externalRoutes = require('../server.js');
+
+    // redirect("/auth/google/callback");
+    // $.ajax({
+    // url: "/auth/google/callback",
+    // type: "POST",
+    // dataType: "json",
+    // data: {
+    // id: profile.getId(),
+    // name: profile.getName(),
+    // imageUrl: profile.getImageUrl(),
+    // email: profile.getEmail()
+    // },
+    // contentType: "application/json",
+    // cache: false,
+    // timeout: 3000,
+
+    // });
+    // }
+
+    // function signOut() {
+    //     var auth2 = gapi.auth2.getAuthInstance();
+    //     auth2.signOut().then(function () {
+    //         console.log('User signed out.');
+    //     });
+    // }
+
+    $(document).ready(function () {
+        $(document).on('click', '#btn-connexion', function () {
+            var username = $("#username").val();
+            var password = $("#password").val();
+
+            console.log(username, password);
+
+            $.ajax({
+                crossDomain: true,
+                url: "http://localhost:8080/users/connexion",
+                method: 'POST',
+                data: {
+                    'mail': username,
+                    'password': password
+                },
+                success: function (data) {
+                    console.log("success");
+                    console.log(data);
+                },
+                error: function (error) {
+                    console.error("error");
+                    console.error(error);
+                }
+            });
+
+        });
+    });
+</script>
+
+
+</html>

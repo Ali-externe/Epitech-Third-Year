@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5dcabe0a81a50689382ea94b"},"username":"test","password":"azerty","City":"Paris"}
+{"_id":{"$oid":"5dcabe1781a50689382ea94c"},"username":"admin","password":"admin","City":"Paris"}

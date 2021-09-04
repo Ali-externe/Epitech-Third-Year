@@ -1,0 +1,28 @@
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+    height: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+button
+{
+    background: #007bff;
+    border: #007bff;
+}
+
+input:invalid {
+    border: 2px dashed red;
+  }
+
+.no-show {
+    display: none;
+}
