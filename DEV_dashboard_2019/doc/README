@@ -1,0 +1,31 @@
+This is the Dashboard Epitech Project of Ali and Thomas
+
+This little readme file while allow you to understand how to use it.
+
+When launching the website you will be presented with two options :
+    - Log in with an already created Login and Password
+    - Register to the site, create a Login and Password, in this "register" page you will find a "Sign Up with Google" buttton that you can use if you want.
+
+Once in the app feel free to tick any services you want to see displayed on your dashboard.
+Then press the bottom button "Display" that will allow you to get what you ask for.
+
+The different services available are :
+    - Meteo
+    - Stock Exchange
+    - T-Rex game
+    - Restaurant finder
+    - Football results
+    - Reddit feed
+    - A calculator
+
+You are free to tick as much a you want or may need.
+
+On the left side of the screen you will find a black menu where you are able to either refresh the current page or log out of Dashboard.
+
+As a bonus just under the "Display" button you will find a "Share on Facebook" button that will allow you to share Dashboard on your Facebook feed (you need to login Facebook first).
+
+
+For this project we used several different technologies such as Node js, HTML, Css, Mongodb and Docker.
+
+
+Ali and Thomas
