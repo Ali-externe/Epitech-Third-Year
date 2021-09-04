@@ -1,0 +1,31 @@
+[id][size][type][msg]
+
+id = id du joueur
+size = size du msg
+type = type du msg
+
+[type]
+-1 = erreur (msg d'erreur)
+1 = demande de Connextion (nom du joueur)
+2 = reponse positive à la demande de connexion (id du joueur)
+3 = tout les joueurs sont co
+4 = changement de position de mon vaisseau
+5 = changement de position d'un vaisseau adverse
+
+#4 = envoie du nombre de player in game
+#5 = envoie du deplacement de mon player
+#6 = envoie du deplacement d'un autre player
+#7 = envoie du tire de mon player
+#8 = envoie du tire d'un autre player
+#9 = mon player a gagner 1 point
+#10 = la fiche de score
+
+[Connection]
+client -> server
+[0] [sizeof(msg)] [1] [(nom du joueur)]
+
+server -> client
+[OK]
+[0] [sizeof(msg)] [2] [id du joueur]
+[FAIL]
+[0] [sizeof(msg)] [-1] [msg d'erreur]
