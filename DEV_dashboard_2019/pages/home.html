@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" type="text/css" href="/checkbox.css">
+<link rel="shortcut icon" type="image/png" href="/favicon.png" />
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+<script language="javascript" type="text/javascript" src="script.js"></script>
+
+<style>
+  body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+  body {font-size:16px;}
+  .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+  .w3-half img:hover{opacity:1}
+
+  .mybtn:hover {
+      cursor: pointer;
+      background-color: #5562eb;
+      color: white;
+  }
+
+</style>
+
+</head>
+<body>
+<nav class="w3-sidebar w3-black w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Ali and Toto<br>Dashboard</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="/home" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Refresh</a>
+    <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Log out</a>
+    <div id="slap_share" class="slap_share" style="display: none"><a href="http://surlapage.fr/widget/cursors-sur-la-page" title="curseurs pour blog">curseurs pour blog</a>
+      <script chasrset="UTF-8" type="text/javascript" src="http://surlapage.fr/script/share-button.js?ath=w&title=Share&amp;theme=light"></script>
+    </div>
+  </div>
+</nav>
+
+<div class="w3-container" style="margin-top:80px" id="Services">
+  <h1 class="w3-jumbo"><b><center>Dashboard<center></b></h1>
+    <div>
+      <br><br>
+      <form class="form">
+  <div class="inputGroup">
+    <input id="option1" name="option1" type="checkbox"/>
+    <label for="option1">Météo</label>
+  </div>
+
+  <div class="inputGroup">
+    <input id="option3" name="option3" type="checkbox"/>
+    <label for="option3">Bourses</label>
+  </div>
+
+  <div class="inputGroup">
+    <input id="option4" name="option4" type="checkbox"/>
+    <label for="option4">T-Rex Game</label>
+  </div>
+
+  <div class="inputGroup">
+    <input id="option5" name="option5" type="checkbox"/>
+    <label for="option5">Restaurant</label>
+  </div>
+
+  <div class="inputGroup">
+    <input id="option6" name="option6" type="checkbox"/>
+    <label for="option6">Football</label>
+  </div>
+
+  <div class="inputGroup">
+    <input id="option8" name="option8" type="checkbox"/>
+    <label for="option8">Reddit</label>
+  </div>
+
+  <div class="inputGroup">
+    <input id="option9" name="option9" type="checkbox"/>
+    <label for="option9">Calculator</label>
+  </div>
+<!--  <div class="inputGroup">
+    <input id="option10" name="option10" type="checkbox"/>
+    <label for="option10">Youtube</label>
+  </div>-->
+
+  <div>
+    <br><br><center>
+      <!--<form action="/checkClicked" method="post">-->
+    <center><a href="#" onclick="checkWidgetToDisplay();" class="btn">Display <span class="arrow">❯</span></a></center>
+    <iframe name="f29ed8d7f7aa6e" width="250px" height="1000px" title="fb:share_button Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/plugins/share_button.php?app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df249bcdc0243d48%26domain%3Dwidgetpourblog.blogspot.com%26origin%3Dhttp%253A%252F%252Fwidgetpourblog.blogspot.com%252Ff3642c9c26686%26relation%3Dparent.parent&amp;container_width=636&amp;href=http%3A%2F%2Fwidgetpourblog.blogspot.com%2F&amp;locale=fr_FR&amp;sdk=joey&amp;type=button_count&amp;width=250" style="border: none; visibility: visible; width: 91px; height: 20px;" class=""></iframe>
+	<!--</form>-->
+    </center>
+  </div>
+    </div>
+
+    <br><br>
+
+    <div id="id_div_1" style="display:none">
+      <script src='https://darksky.net/map-embed/@temperature,39.015,-94.978,4.js?embed=true&timeControl=true&fieldControl=true&defaultField=temperature&defaultUnits=_c'></script>
+    </div>
+
+    <center><div id="id_div_2" style="display:none">
+	<iframe align="center" name="programme-television" marginwidth=0 marginheight=0 width="1300" height="400" scrolling=auto border=0 frameborder=0 src="http://www.programme-television.org/index.php?chaine=98&c1=6B8DEE&c2=B2C4F9&moteur=0&profile=blog468" style="border:0px;"></iframe><noscript><a href="http://www.programme-television.org">Programme Tele</a> - <a href="http://www.programme-television.org">Programme TV</a> - <a href="http://www.programme-television.org">Programme Television</a></noscript>
+    </div></center>
+
+    <div id="id_div_3" style="display:none">
+      <center><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+        {
+            "showChart": true,
+            "locale": "fr",
+            "largeChartUrl": "",
+	    "position": "right",
+            "width": "1310",
+            "height": "420",
+            "plotLineColorGrowing": "rgba(60, 188, 152, 1)",
+            "plotLineColorFalling": "rgba(255, 74, 104, 1)",
+            "gridLineColor": "rgba(233, 233, 234, 1)",
+            "scaleFontColor": "rgba(214, 216, 224, 1)",
+            "belowLineFillColorGrowing": "rgba(60, 188, 152, 0.05)",
+            "belowLineFillColorFalling": "rgba(255, 74, 104, 0.05)",
+            "symbolActiveColor": "rgba(242, 250, 254, 1)",
+            "tabs": [
+                {
+                    "title": "Indices",
+                    "symbols": [
+                        {
+                            "s": "INDEX:SPX",
+                            "d": "S&P 500"
+                        }, {
+                            "s": "INDEX:IUXX",
+                            "d": "Nasdaq 100"
+                        }, {
+                            "s": "INDEX:DOWI",
+                            "d": "Dow 30"
+                        }, {
+                            "s": "INDEX:NKY",
+                            "d": "Nikkei 225"
+                        }, {
+                            "s": "INDEX:DAX",
+                            "d": "DAX Index"
+                        }, {
+			    "s": "OANDA:UK100GBP",
+			    "d": "FTSE 100"
+                        }
+                    ],
+                    "originalTitle": "Indices"
+                }, {
+                    "title": "Matières premières",
+                    "symbols": [
+                        {
+                            "s": "CME_MINI:ES1!",
+                            "d": "E-Mini S&P"
+                        }, {
+                            "s": "CME:E61!",
+                            "d": "Euro"
+                        }, {
+                            "s": "COMEX:GC1!",
+                            "d": "Gold"
+                        }, {
+                            "s": "NYMEX:CL1!",
+                            "d": "Crude Oil"
+                        }, {
+			    "s": "NYMEX:NG1!",
+			    "d": "Natural Gas"
+                        }, {
+                            "s": "CBOT:ZC1!",
+                            "d": "Corn"
+                        }
+                    ],
+                    "originalTitle": "Commodities"
+                }, {
+                    "title": "Obligations",
+                    "symbols": [
+                        {
+                            "s": "CME:GE1!",
+                            "d": "Eurodollar"
+                        }, {
+                            "s": "CBOT:ZB1!",
+                            "d": "T-Bond"
+                        }, {
+                            "s": "CBOT:UD1!",
+                            "d": "Ultra T-Bond"
+                        }, {
+			    "s": "EUREX:GG1!",
+			    "d": "Euro Bund"
+                        }, {
+                            "s": "EUREX:II1!",
+                            "d": "Euro BTP"
+                        }, {
+                            "s": "EUREX:HR1!",
+                            "d": "Euro BOBL"
+                        }
+                    ],
+                    "originalTitle": "Bonds"
+                }, {
+                    "title": "Forex",
+                    "symbols": [
+                        {
+                            "s": "FX:EURUSD"
+                        }, {
+                            "s": "FX:GBPUSD"
+                        }, {
+                            "s": "FX:USDJPY"
+                        }, {
+			    "s": "FX:USDCHF"
+                        }, {
+                            "s": "FX:AUDUSD"
+                        }, {
+                            "s": "FX:USDCAD"
+                        }
+                    ],
+                    "originalTitle": "Forex"
+                }
+            ]
+        }
+      </script></center>
+    </div>
+
+    <center><div id="id_div_4" style="display:none">
+	<iframe src="https://www.silvergames.com/fr/t-rex/iframe" width="1300" height="400" style="margin:0;padding:0;border:0"></iframe>
+    </div></center>
+
+    <center><div id="id_div_5" style="display:none">
+	<div class="widget_wrap"><iframe src="https://www.zomato.com/widgets/res_search_widget.php?city_id=327&theme=red&hideCitySearch=on&sort=popularity" width="1300" height="400"></iframe></div>
+    </div></center>
+
+    <center><div id="id_div_6" style="display:none">
+        <iframe id="tap-sport-tools-2775" class="tap-sport-tools" width="300px" src="//tools.footendirect.com/tools.php?id=2775&amp;iframe=tap-sport-tools-2775&amp;tz-js=Europe/Berlin#http%3A%2F%2Fwidgetpourblog.blogspot.com%2F2013%2F11%2Fwidget-pour-un-blog-de-football.html" frameborder="0" scrolling="no" style="vertical-align: bottom;" height="916px"></iframe>
+    </div></center>
+
+    <center><div id="id_div_7" style="display:none">
+	<iframe src='https://www.census.gov/glossary.embed/?gloss=137092&enablejsapi=1&html5=1&origin=https://www.census.gov' width="1300" height="400" frameborder="0" scrolling="no"></iframe>
+    </div></center>
+
+    <center><div id="id_div_8" style="display:none">
+	<script src='https://redditjs.com/post.js' data-url='' data-height='400' data-width='1300' data-post-finder='mostComments' data-theme='dark' data-show-submit='true'>
+	</script>
+    </div></center>
+
+    <center><div id="id_div_9" style="display:none">
+        <iframe width="219" height="302" src="http://calculator-1.com/outdoor/?f=42aaff&r=ff0000" scrolling="no" frameborder="0"></iframe><br /><a href="https://calculator-1.com/%22%3ECalculator-1.com" - The Best Free Online Calculatorн</a>
+    </div></center>
+
+<!--    <center><div id="id_div_10" style="display:none">
+        <div class="item">
+            <h2>{{title}}</h2>
+            <iframe class="video w100" width="640" height="360" src="//www.youtube.com/embed/{{videoid}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div></center>-->
+
+    <div>
+      <form action="/addServices">
+	<button type="button" class="submitService">
+      </form>
+    </div>
+</body>
+</html>

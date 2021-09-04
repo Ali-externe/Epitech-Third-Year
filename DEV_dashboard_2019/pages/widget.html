@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Forever Broke</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" type="text/css" href="/style.css">
+<link rel="stylesheet" type="text/css" href="/checkbox.css">
+<link rel="shortcut icon" type="image/png" href="/favicon.png" />
+<script language="javascript" type="text/javascript" src="script.js"></script>
+
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
+</head>
+<body>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-black w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Dashboard<br>Dashboard</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="/home" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+    <div id="slap_share" class="slap_share" style="display: none"><a href="http://surlapage.fr/widget/cursors-sur-la-page" title="curseurs pour blog">curseurs pour blog</a>
+      <script chasrset="UTF-8" type="text/javascript" src="http://surlapage.fr/script/share-button.js?ath=w&title=Share&amp;theme=light"></script>
+    </div>
+  </div>
+</nav>
+
+<div id="slap_share" class="slap_share" style="display: none"><a href="http://surlapage.fr/widget/cursors-sur-la-page" title="curseurs pour blog">curseurs pour blog</a><script chasrset="UTF-8" type="text/javascript" src="http://surlapage.fr/script/share-button.js?ath=w&title=Share&amp;theme=light"></script></div>
+
+<div class="w3-container" style="margin-top:80px" id="Services">
+  <h1 class="w3-jumbo"><b><center>Widgets<center></b></h1>
+</div>
+<center><br><br><br><br><br>
+  <script src='https://darksky.net/map-embed/@temperature,39.015,-94.978,4.js?embed=true&timeControl=true&fieldControl=true&defaultField=temperature&defaultUnits=_c'></script>
+  <br><br><br>
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://fr.tradingview.com" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+      {
+          "showChart": true,
+          "locale": "fr",
+          "largeChartUrl": "",
+          "width": "400",
+          "height": "600",
+          "plotLineColorGrowing": "rgba(60, 188, 152, 1)",
+          "plotLineColorFalling": "rgba(255, 74, 104, 1)",
+          "gridLineColor": "rgba(233, 233, 234, 1)",
+          "scaleFontColor": "rgba(214, 216, 224, 1)",
+          "belowLineFillColorGrowing": "rgba(60, 188, 152, 0.05)",
+          "belowLineFillColorFalling": "rgba(255, 74, 104, 0.05)",
+          "symbolActiveColor": "rgba(242, 250, 254, 1)",
+          "tabs": [
+              {
+                  "title": "Indices",
+                  "symbols": [
+                      {
+                          "s": "INDEX:SPX",
+                          "d": "S&P 500"
+                      }, {
+                          "s": "INDEX:IUXX",
+                          "d": "Nasdaq 100"
+                      }, {
+                          "s": "INDEX:DOWI",
+                          "d": "Dow 30"
+                      }, {
+                          "s": "INDEX:NKY",
+                          "d": "Nikkei 225"
+                      }, {
+                          "s": "INDEX:DAX",
+                          "d": "DAX Index"
+                      }, {
+                          "s": "OANDA:UK100GBP",
+                          "d": "FTSE 100"
+                      }
+                  ],
+                  "originalTitle": "Indices"
+              },
+              {
+                  "title": "Matières premières",
+                  "symbols": [
+                      {
+                          "s": "CME_MINI:ES1!",
+                          "d": "E-Mini S&P"
+                      },
+                      {
+                          "s": "CME:E61!",
+                          "d": "Euro"
+                      },
+                      {
+                          "s": "COMEX:GC1!",
+                          "d": "Gold"
+                      },
+                      {
+                          "s": "NYMEX:CL1!",
+                          "d": "Crude Oil"
+                      },
+                      {
+			  "s": "NYMEX:NG1!",
+			  "d": "Natural Gas"
+                      },
+                      {
+                          "s": "CBOT:ZC1!",
+                          "d": "Corn"
+                      }
+                  ],
+                  "originalTitle": "Commodities"
+              },
+              {
+                  "title": "Obligations",
+                  "symbols": [
+                      {
+                          "s": "CME:GE1!",
+                          "d": "Eurodollar"
+                      },
+                      {
+                          "s": "CBOT:ZB1!",
+                          "d": "T-Bond"
+                      },
+                      {
+                          "s": "CBOT:UD1!",
+                          "d": "Ultra T-Bond"
+                      },
+                      {
+			  "s": "EUREX:GG1!",
+			  "d": "Euro Bund"
+                      },
+                      {
+                          "s": "EUREX:II1!",
+                          "d": "Euro BTP"
+                      },
+                      {
+                          "s": "EUREX:HR1!",
+                          "d": "Euro BOBL"
+                      }
+                  ],
+                  "originalTitle": "Bonds"
+              },
+              {
+                  "title": "Forex",
+                  "symbols": [
+                      {
+                          "s": "FX:EURUSD"
+                      },
+                      {
+                          "s": "FX:GBPUSD"
+                      },
+                      {
+                          "s": "FX:USDJPY"
+                      },
+		      {
+			  "s": "FX:USDCHF"
+                      },
+                      {
+                          "s": "FX:AUDUSD"
+                      },
+                      {
+                          "s": "FX:USDCAD"
+                      }
+                  ],
+                  "originalTitle": "Forex"
+              }
+          ]
+      }
+    </script>
+  </div>
+</center>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "dashboard_ali_toto",
+  "version": "1.0.0",
+  "description": "Dashboard",
+  "author": "ALI and TOTO",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.1.8",
+    "mongoose": "^5.3.4",
+    "nodemon": "^1.18.4"
+  }
+}
